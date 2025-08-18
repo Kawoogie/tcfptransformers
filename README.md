@@ -31,7 +31,7 @@
 <h3 align="center">TCFP Data Handling Package.</h3>
 
   <p align="center">
-    This Python package contains functions to find and load data for the TCFP protocol..
+    This Python package contains custom tranformers for Scikit-Learn pipelines to work with the TCFP protocol.
     <br />
     <a href="https://github.com/Kawoogie/tcfptransformers"><strong>Explore the docs »</strong></a>
     <br />
@@ -74,7 +74,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This package is a custom Python package for handling the data in the TCFP protocol. 
+This Python package contains custom tranformers for Scikit-Learn pipelines to work with the TCFP protocol. The transformers are meant to modify and prepare the data of the TCFP protocol for input into a machine learning model. The transformers have been written so that they can be incorportated into a pipeline.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -107,9 +107,8 @@ pip install -U scikit-learn
 This code was tested on Python 3.9
 
 This code requires the following packages:
-- Pandas 1.1.2 or higher
 - Numpy 1.19.2 or higher
-- MatPlotLib 3.3.2 or higher
+- Scipy 1.5.2 or higher
 - Scikit Learn 1.2.1 or higher
   
 
@@ -141,43 +140,10 @@ git config --global core.longpaths true
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-Here's an example of how to use this package to find, and load the data into a Pandas Dataframe: 
+Here's an example of how to use this package to transform the data: 
 ### Example 
 ```
-from tcfpdatahandling.openfiles import open_files, get_participant_numbers, get_data_file_names
-from tcfpdatahandling.finddata import find_data
 
-# Get the location of the data
-file_location = find_data()
-
-print()
-print("Opening File: ")
-print(file_location)
-print()
-
-# Get the participant numbers
-participants = get_participant_numbers(file_location)
-
-print("Participants Found:")
-print(participants)
-print()
-
-print("Using a subsection of participants")
-participants = participants[:3]
-print(participants)
-print()
-
-# Get the files that contain  the PPG data
-data_files = get_data_file_names(file_location, participants)
-
-print(f"Found {len(data_files)} data files")
-print()
-
-# Load the data files
-print("Loading the data")
-df = open_files(file_location, data_files)
-
-print(df.head())
 
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
