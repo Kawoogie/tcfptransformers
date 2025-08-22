@@ -87,7 +87,7 @@ This is a custom package. Start by installing the package, then follow the examp
 
 Start by creating an environment to install the package
 ```
-conda create -n "myenv" python=3.10.0
+conda create -n "myenv" python=3.10.17 ipython
 ```
 
 Activate the environment
