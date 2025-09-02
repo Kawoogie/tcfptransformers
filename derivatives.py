@@ -1,4 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
+from .exceptions import ColumnNotFound
 import numpy as np
 """
 This transformer computes the derivatives of the PPG signals listed in "columns"
@@ -7,7 +8,7 @@ to not compute the second derivative.
 """
 
 
-class RemoveZeros(BaseEstimator, TransformerMixin):
+class Derivatives(BaseEstimator, TransformerMixin):
 
     def __init__(self, columns=None, second_comp=True):
         if columns is None:
@@ -29,6 +30,10 @@ class RemoveZeros(BaseEstimator, TransformerMixin):
 
                 X_trans[first] = np.gradient(X_trans[column], rate, edge_order=1)
                 X_trans[second] = np.gradient(X_trans[first], rate, edge_order=1)
+
+            else:
+                raise ColumnNotFound(f"Column {column} not found in Derivatives"
+                                     f" transformer")
 
         return X_trans
 
