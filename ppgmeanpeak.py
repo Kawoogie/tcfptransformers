@@ -1,4 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
+from .exceptions import ColumnNotFound
 from scipy import signal
 import numpy as np
 """
@@ -36,7 +37,10 @@ class MeanPeakCalculation(BaseEstimator, TransformerMixin):
             for i in range(self.interval, rows):
                 X_trans.loc[i, mean_column_name] = np.mean(filtered[i - self.interval:i])
                 X_trans.loc[i, peak_colum_name] = np.abs(np.min(filtered[i - self.interval:i])) + np.abs(np.max(filtered[i - self.interval:i]))
-        return X_trans
+            return X_trans
+        else:
+            raise ColumnNotFound(f"Colum {self.signal} not found with "
+                                 f"MeanPeakCalculation transformer.")
 
 
 def main() -> None:

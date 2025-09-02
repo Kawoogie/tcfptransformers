@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-
+from .exceptions import ColumnNotFound
 """
 This transformer computes the ratio of column_1 to column_2 and saves the result
 in a new column titled "column_1_column_2".
@@ -23,7 +23,12 @@ class RatioComputation(BaseEstimator, TransformerMixin):
             X_transformed[new_column] = X_transformed[self.column_1] / \
                                         X_transformed[self.column_2]
 
-        return X_transformed
+            return X_transformed
+        else:
+            raise ColumnNotFound(f"Either Column {self.column_1} or "
+                                 f"{self.column_2} were not found in the "
+                                 f"RatioComputation transformer")
+
 
 
 def main() -> None:

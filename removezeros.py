@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-
+from .exceptions import ColumnNotFound
 """
 This transformer removes zero points by replacing them with the value of the
 point before them. The default removes the zero points on the red, green, and ir
@@ -24,7 +24,11 @@ class RemoveZeros(BaseEstimator, TransformerMixin):
                 X_transformed[column].replace(0, float('nan'), inplace=True)
                 X_transformed[column].ffill(inplace=True)
 
-        return X_transformed
+                return X_transformed
+            else:
+                raise ColumnNotFound(f"In columns: {self.columns}, one of the "
+                                     f"columns was not found in the RemoveZeros"
+                                     f" transformer")
 
 
 def main() -> None:
