@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-
+from .exceptions import ColumnNotFound
 """
 This transformer rounds the values in "column" to the number of
 decimal places defined by "precision" using a numerical base "base".
@@ -23,7 +23,10 @@ class Rounding(BaseEstimator, TransformerMixin):
             X_transformed[self.column] = X_transformed[self.column].astype(float)
             X_transformed[self.column] = round(self.base * round((X_transformed[self.column])/self.base), self.precision)
 
-        return X_transformed
+            return X_transformed
+        else:
+            raise ColumnNotFound(f"Column {self.column} not found with Rounding"
+                                 f" transformer.")
 
 
 def main() -> None:
