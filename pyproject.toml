@@ -12,7 +12,7 @@ exclude = ["images", "images*"]
 
 [tool.setuptools.exclude-package-data]
 # This applies to package_data — any included packages' data files you want to drop
-"" = ["images/*"]
+"*" = ["images/*"]
 
 [tool.setuptools-git-versioning]
 enabled = true
