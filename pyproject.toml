@@ -3,7 +3,16 @@ requires = ["setuptools", "setuptools-git-versioning"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["tcfptransformers"]
+# packages = ["tcfptransformers"]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["tcfptransformers*"]
+exclude = ["images", "images*"] 
+
+[tool.setuptools.exclude-package-data]
+# This applies to package_data — any included packages' data files you want to drop
+"" = ["images/*"]
 
 [tool.setuptools-git-versioning]
 enabled = true
