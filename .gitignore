@@ -1,0 +1,93 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions / compiled modules
+*.so
+*.pyd
+
+# Distribution / packaging artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+# Install logs or pip temporary files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+__pypackages__/
+
+# Test tools / coverage / caches
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.pytest_cache/
+.cache/
+hypothesis/
+coverage.xml
+*.cover
+
+# IDE / editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs / temp / backup files
+*.log
+*.tmp
+*.bak
+*.swp
+*.old
+*.save
+
+# Documentation build
+docs/_build/
+site/
+target/
+
+# Type checker / static analysis caches
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+cython_debug/
+
+# Git / repo metadata
+.gitignore
+.gitattributes
+
+# Images folder (if you want to ignore it completely)
+images/
+images/**
+
+# (Optional) if you have notebooks or temporary IPython outputs
+*.ipynb_checkpoints
+*.ipynb
+
+# (Optional) local config / secrets
+.env
+.local/
+secrets.json
+
