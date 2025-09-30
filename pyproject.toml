@@ -2,6 +2,18 @@
 requires = ["setuptools", "setuptools-git-versioning"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+# packages = ["tcfptransformers"]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["tcfptransformers*"]
+exclude = ["images", "images*"] 
+
+[tool.setuptools.exclude-package-data]
+# This applies to package_data — any included packages' data files you want to drop
+"*" = ["images/*"]
+
 [tool.setuptools-git-versioning]
 enabled = true
 
@@ -12,7 +24,6 @@ dependencies = ["scipy>=1.5.2",
 "numpy>=1.19.2",
 "scikit-learn>=1.2.1"]
 requires-python = ">=3.8"
-py_modules=["contactsurface", "derivatives", "exceptions", "mapcal", "ppgmeanpeak", "pressurecomputation", "ratiocomputation", "removenegatives", "removezeros", "rounding"]
 authors = [
   {name = "Lee Sikstrom", email = "ldsikstrom@gmail.com"},
 ]
