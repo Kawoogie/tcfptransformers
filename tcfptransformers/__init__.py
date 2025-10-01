@@ -25,4 +25,5 @@ from . import contactsurface
 # Function to compute all of the features minus the derivatives
 
 
-version = "1.2.0"
+version = "1.0.0"
+
